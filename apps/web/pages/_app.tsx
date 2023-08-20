@@ -1,14 +1,19 @@
-import type { AppProps } from "next/app";
-import { Provider } from "react-redux";
-import store from "../src/store";
-import "../src/styles/global.css";
+import "symbol-observable";
 
-function MyApp({ Component, pageProps }: AppProps) {
+import "./global.css";
+
+import { StoreProvider } from "easy-peasy";
+import type { AppProps } from "next/app";
+import type { FC } from "react";
+import { nextReduxWrapper } from "../store/global.store";
+
+const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
+  const { store, props } = nextReduxWrapper.useWrappedStore(pageProps);
   return (
-    <Provider store={store}>
-      <Component {...pageProps} />;
-    </Provider>
+    <StoreProvider store={store}>
+      <Component {...props} />
+    </StoreProvider>
   );
-}
+};
 
 export default MyApp;

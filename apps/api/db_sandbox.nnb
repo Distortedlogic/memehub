@@ -1,0 +1,85 @@
+{
+    "cells": [
+        {
+            "language": "typescript",
+            "source": [
+                "import { DataSource } from 'typeorm';\n\n\nconst dataSource= new DataSource({\n  name: 'default',\n  type: 'postgres',\n  host: 'localhost',\n  port: 5432,\n  username: 'postgres',\n  password: 'postgres',\n  database: 'db_lobby',\n  entities: [__dirname + '/src/**/*.entity.{ts,js}'],\n});\nawait dataSource.initialize()\ndataSource.isInitialized"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "\u001b[33mtrue\u001b[39m"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "dataSource.createQueryBuilder().select('user').from('users','user').limit(1).getMany()"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "[",
+                                "  UserEntity {",
+                                "    id: \u001b[32m'3efac62b-566a-4cc4-ab09-61aaca1f587e'\u001b[39m,",
+                                "    createdAt: \u001b[32m'2023-07-27T13:57:33.853Z'\u001b[39m,",
+                                "    lobbymaticPermission: \u001b[32m'admin'\u001b[39m,",
+                                "    firmPermission: \u001b[1mnull\u001b[22m,",
+                                "    firstName: \u001b[32m'Shaylee'\u001b[39m,",
+                                "    lastName: \u001b[32m'Fahey'\u001b[39m,",
+                                "    email: \u001b[32m'admin@lobbymatic.com'\u001b[39m,",
+                                "    emailVerified: \u001b[33mtrue\u001b[39m,",
+                                "    password: \u001b[32m'$2a$10$qNfx9pdh5j8oM4ER.Giacu2U/ScTUYlO0rRe2ccSbuO18duNO4D1m'\u001b[39m,",
+                                "    timezone: \u001b[32m'America/Anchorage'\u001b[39m,",
+                                "    lastLogin: \u001b[35m2023-07-27T17:57:33.853Z\u001b[39m,",
+                                "    firmId: \u001b[32m'c5e9a4a7-49d9-4f5f-91dd-b477e7633039'\u001b[39m,",
+                                "    avatarId: \u001b[1mnull\u001b[22m",
+                                "  }",
+                                "]"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        }
+    ]
+}

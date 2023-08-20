@@ -1,0 +1,30 @@
+import { EContentType } from './EContentType';
+import { EExtension } from './EExtension';
+
+export const extToContentType: Record<EExtension, EContentType> = {
+  [EExtension.Doc]: EContentType.Doc,
+  [EExtension.Docx]: EContentType.Docx,
+  [EExtension.Ppt]: EContentType.Ppt,
+  [EExtension.Pptx]: EContentType.Pptx,
+  [EExtension.Xls]: EContentType.Xls,
+  [EExtension.Xlsx]: EContentType.Xlsx,
+  [EExtension.Pdf]: EContentType.Pdf,
+  [EExtension.Rtf]: EContentType.Rtf,
+  [EExtension.Txt]: EContentType.Txt,
+  [EExtension.Zip]: EContentType.Zip,
+  [EExtension.Jpeg]: EContentType.Jpeg,
+  [EExtension.Jpg]: EContentType.Jpeg,
+  [EExtension.Png]: EContentType.Png,
+  [EExtension.Gif]: EContentType.Gif,
+  [EExtension.Mp3]: EContentType.Mp3,
+  [EExtension.Wav]: EContentType.Wav,
+  [EExtension.Mp4]: EContentType.Mp4,
+  [EExtension.Mpeg]: EContentType.Mpeg,
+  [EExtension.Mpg]: EContentType.Mpeg,
+  [EExtension.Mov]: EContentType.Quicktime,
+  [EExtension.Odt]: EContentType.Odt,
+  [EExtension.Odp]: EContentType.Odp,
+  [EExtension.Ods]: EContentType.Ods,
+  [EExtension.Rar]: EContentType.Rar,
+  [EExtension.Tar]: EContentType.Tar,
+};

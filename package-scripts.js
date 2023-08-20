@@ -18,28 +18,6 @@ module.exports = {
         api: `npx turbo prune --scope=api && cd out && yarn install --frozen-lockfile && nps prisma.generate`,
       },
     },
-    test: {
-      default: `nps test.web test.api`,
-      web: `cd ${webPath} && yarn test`,
-      api: `cd ${apiPath} && yarn test`,
-      ci: {
-        default: `nps test.ci.web test.ci.api`,
-        web: `cd ${ciWebPath} && yarn test:ci`,
-        api: `cd ${ciApiPath} && yarn test:ci`,
-      },
-      watch: {
-        default: `nps test.watch.web test.watch.api`,
-        web: `cd ${webPath} && yarn test:watch`,
-        api: `cd ${apiPath} && yarn test:watch`,
-      },
-    },
-    prisma: {
-      generate: `cd ${apiPath} && npx prisma generate`,
-      studio: `cd ${apiPath} && npx prisma studio`,
-      migrate: {
-        dev: `cd ${apiPath} && npx prisma migrate dev`,
-      },
-    },
     build: {
       default: "npx turbo run build",
       ci: {

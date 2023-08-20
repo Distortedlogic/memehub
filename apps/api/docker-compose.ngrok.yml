@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  ngrok_web:
+    container_name: ngrok_web
+    image: wernight/ngrok:latest
+    command: ngrok http
+      -authtoken=${NGROK_AUTHTOKEN}
+      -log=stdout
+      -host-header=localhost
+      -subdomain=lobbymatic
+      localhost:5000
+    ports:
+      - "4040:4040"
