@@ -3,19 +3,16 @@
   "extends": "./base.json",
   "compilerOptions": {
     "module": "commonjs",
-    "declaration": true,
-    "removeComments": true,
+    "moduleResolution": "node",
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext", "esnext.asynciterable"],
+    "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2017",
-    "sourceMap": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
     "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "declaration": true
   }
 }

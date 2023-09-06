@@ -1,0 +1,16 @@
+{
+  "include": ["src","ormconfig.ts", "migrations", "newrelic.js"],
+  "extends": "tsconfig/nestjs.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/**/*.d.ts"
+    ]
+  },
+  "ts-node": {  "files": true },
+  "nest": { "files": true }
+}

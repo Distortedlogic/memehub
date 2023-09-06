@@ -1,43 +1,44 @@
-import * as dotenv from "dotenv";
+import * as dotenv from 'dotenv';
 dotenv.config();
 
-import express from "express";
-import { createProxyMiddleware } from "http-proxy-middleware";
-import next from "next";
-import { Environment } from "./src/utils/environment";
+import express from 'express';
+import { createProxyMiddleware } from 'http-proxy-middleware';
+import next from 'next';
 
-const { port, backendHost } = Environment;
+const port = parseInt(process.env.NEXT_PUBLIC_PORT);
+const backendHost = 'localhost';
 const backendPort = 5000;
 const target = `http://${backendHost}:${backendPort}`;
-const app = next({ dev: true, hostname: "localhost", port });
+const app = next({ dev: true, hostname: 'localhost', port });
+
 const handle = app.getRequestHandler();
 app
   .prepare()
   .then(() => {
     const server = express();
     server.use(
-      "/graphql",
-      createProxyMiddleware("/graphql", {
+      '/graphql',
+      createProxyMiddleware('/graphql', {
         target,
-        pathRewrite: { "^/graphql": "/graphql" },
+        pathRewrite: { '^/graphql': '/graphql' },
         secure: false,
         changeOrigin: true,
-        logLevel: "debug",
+        logLevel: 'debug',
         ws: true,
-      })
+      }),
     );
     server.use(
-      "/rest",
-      createProxyMiddleware("/rest", {
+      '/rest',
+      createProxyMiddleware('/rest', {
         target,
-        pathRewrite: { "^/rest": "" },
+        pathRewrite: { '^/rest': '' },
         secure: false,
         changeOrigin: true,
-        logLevel: "debug",
+        logLevel: 'debug',
         ws: false,
-      })
+      }),
     );
-    server.all("*", (req, res) => handle(req, res));
+    server.all('*', (req, res) => handle(req, res));
     server.listen(port, () => console.log(`> Ready on http://localhost:${port}`));
   })
-  .catch((err) => console.log("Error:::::", err));
+  .catch((err) => console.log('Error:::::', err));

@@ -34,7 +34,8 @@
     "PKief.material-icon-theme",
     "redhat.vscode-yaml",
     "steoates.autoimport",
-    "wix.vscode-import-cost"
+    "wix.vscode-import-cost",
+    "unional.vscode-sort-package-json"
   ]
   
 }

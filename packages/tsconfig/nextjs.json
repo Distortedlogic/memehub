@@ -1,22 +1,20 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Next.js",
+  "display": "Next",
   "extends": "./base.json",
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "incremental": true,
+    "composite": true,
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["dom", "dom.iterable", "es6", "es2017", "esnext", "esnext.asynciterable"],
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "isolatedModules": true,
+    "noEmit": true,
     "jsx": "preserve"
-  },
-  "include": ["src", "next-env.d.ts"],
-  "exclude": ["node_modules"]
+  }
 }

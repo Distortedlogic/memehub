@@ -9,7 +9,8 @@
   "editor.linkedEditing": true,
   "editor.suggestSelection": "first",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": true,
+    "source.sortPackageJson":true
   },
   "files.associations": { "*.tsx": "typescriptreact" },
   "files.autoSave": "afterDelay",
@@ -19,7 +20,6 @@
   "material-icon-theme.activeIconPack": "react_redux",
   "indentRainbow.colors": ["rgba(34, 34, 34, 1)", "rgba(17, 17, 17, 1)"],
   "indentRainbow.ignoreErrorLanguages": ["python", "docker"],
-  "prettier.printWidth": 140,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
@@ -47,7 +47,6 @@
     "solidity": "contract",
     "discord": "core",
     "chrome_extension": "middleware"
-    // "edge_cli": "command"
   },
   "workbench.editor.wrapTabs": true,
   "go.toolsManagement.autoUpdate": true,
@@ -56,6 +55,5 @@
   "bracket-pair-colorizer-2.depreciation-notice": false,
   "workbench.startupEditor": "none",
   "explorer.confirmDragAndDrop": false,
-  "git.autofetch": true,
-  "prettier.enableDebugLogs": true
+  "git.autofetch": true
 }
