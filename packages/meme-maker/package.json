@@ -1,0 +1,32 @@
+{
+  "name": "meme-maker",
+  "version": "0.0.1",
+  "main": "index.tsx",
+  "types": "index.tsx",
+  "dependencies": {
+    "@ctrl/tinycolor": "4.0.2",
+    "@dnd-kit/core": "6.0.8",
+    "@dnd-kit/modifiers": "6.0.1",
+    "async": "3.2.4",
+    "easy-peasy": "6.0.2",
+    "image-conversion": "2.1.1",
+    "react": "18.2.0",
+    "react-color": "2.19.3",
+    "react-dom": "18.2.0",
+    "react-icons": "4.11.0",
+    "react-image-crop": "10.1.8",
+    "react-use": "17.4.0"
+  },
+  "devDependencies": {
+    "@types/async": "3.2.20",
+    "@types/react": "18.2.21",
+    "@types/react-color": "3.0.6",
+    "gql-client": "*",
+    "tailwind": "*",
+    "tailwindcss": "3.3.3",
+    "tsconfig": "*",
+    "typescript": "5.2.2",
+    "ui": "*",
+    "utils": "*"
+  }
+}

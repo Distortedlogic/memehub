@@ -1,0 +1,16 @@
+{
+  "extends": "tsconfig/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "jsx": "preserve"
+  },
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
