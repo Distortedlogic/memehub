@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import { nextUrqlClient, useLoginMutation } from 'gql-client';
-import { useToastFormikErrors } from 'hooks/useToastFormikErrors';
-import { NextPage } from 'next';
+import { useToastFormikErrors } from 'hooks';
+import type { NextPage } from 'next';
 import { withUrqlClient } from 'next-urql';
 import { useRouter } from 'next/router';
 import { Button, Input } from 'ui';

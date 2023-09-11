@@ -1,25 +1,36 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Column, Entity } from 'typeorm';
-import { ES3Folder } from '../../aws/misc/ES3Folder';
-import { NodeColumns } from '../../common/columns/node';
-import { ES3Bucket } from '../../config/keys/aws.config';
+import { S3ItemEntity } from '../../common/columns/s3-item';
+
+interface IMemeImageS3sKeyProps extends Pick<MemeImageAbstract, 'eS3Folder' | 'userId' | 'hash' | 'ext'> {}
 
 @ObjectType({ isAbstract: true })
-@Entity('meme_images')
-export class ImageEntity extends NodeColumns {
-  @Field({ nullable: true })
-  @Column({ enum: ES3Bucket, nullable: true })
-  eS3Bucket?: ES3Bucket;
+abstract class MemeImageAbstract extends S3ItemEntity {
+  @Field()
+  @Column('uuid', { name: 'user_id' })
+  userId: string;
 
-  @Field(() => ES3Folder)
-  @Column({ name: 'bucket_folder', enum: ES3Folder, nullable: true })
-  eBucketFolder?: ES3Folder;
+  static getAwsKey({ eS3Folder, userId, hash, ext }: IMemeImageS3sKeyProps) {
+    return `${eS3Folder}/${userId}/${hash}.${ext}`;
+  }
 
-  @Field({ nullable: true })
-  @Column({ nullable: true })
-  hash?: string;
+  getAwsKey() {
+    return MemeImageAbstract.getAwsKey(this);
+  }
 
-  @Field({ nullable: true })
-  @Column({ nullable: true })
-  ext?: string;
+  static getAwsUrl({ eS3Bucket, ...args }: Pick<MemeImageAbstract, 'eS3Bucket'> & IMemeImageS3sKeyProps) {
+    return `https://${eS3Bucket}.s3.amazonaws.com/${MemeImageAbstract.getAwsKey(args)}`;
+  }
+
+  getAwsUrl() {
+    return MemeImageAbstract.getAwsUrl(this);
+  }
 }
+
+@ObjectType()
+@Entity('meme_images')
+export class MemeImageEntity extends MemeImageAbstract {}
+
+@ObjectType()
+@Entity('meme_image_tokens')
+export class MemeImageTokenEntity extends MemeImageAbstract {}

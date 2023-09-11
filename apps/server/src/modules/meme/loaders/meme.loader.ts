@@ -3,8 +3,8 @@ import DataLoader from 'dataloader';
 import { In } from 'typeorm';
 import { BaseDataloaderService, IBaseDataLoaders } from '../../../../core/generics/services/base.loader.g';
 import { IUserPassport } from '../../../../core/interfaces/IUserPassport';
-import { MemeEntity } from './entities/meme.entity';
-import { MemeService } from './meme.service';
+import { MemeEntity } from '../entities/meme.entity';
+import { MemeService } from '../meme.service';
 
 export interface IMemeDataLoaders extends IBaseDataLoaders<MemeEntity> {
   contest: {

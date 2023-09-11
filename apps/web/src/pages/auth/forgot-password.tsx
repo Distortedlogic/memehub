@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import { useToastFormikErrors } from 'hooks/useToastFormikErrors';
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { authControllerForgotPassword } from 'rest-client/apiComponents';
 import { Button, Input, Label, useToast } from 'ui';

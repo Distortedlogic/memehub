@@ -1,4 +1,3 @@
-import { useMeQuery } from 'gql-client';
 import { useCallback } from 'react';
 
 const waterMark = (height: number) => {
@@ -21,16 +20,12 @@ const waterMark = (height: number) => {
 };
 
 export const useWaterMark = () => {
-  const [{ fetching }] = useMeQuery();
-  return useCallback(
-    (svg: SVGSVGElement) => {
-      const { height } = svg.getBoundingClientRect();
-      const clone = svg.cloneNode(true) as SVGSVGElement;
-      if (!true)
-        // check if paid for no watermark
-        clone.appendChild(waterMark(height));
-      return clone;
-    },
-    [fetching],
-  );
+  // const [{ fetching }] = useMeQuery();
+  return useCallback((svg: SVGSVGElement) => {
+    const { height } = svg.getBoundingClientRect();
+    const clone = svg.cloneNode(true) as SVGSVGElement;
+    // check if paid for no watermark
+    clone.appendChild(waterMark(height));
+    return clone;
+  }, []);
 };

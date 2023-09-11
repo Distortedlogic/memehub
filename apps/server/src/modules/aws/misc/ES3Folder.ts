@@ -1,7 +1,7 @@
 import { registerEnumType } from '@nestjs/graphql';
 
 export enum ES3Folder {
-  Documents = 'documents',
+  Memes = 'memes',
   Avatars = 'avatars',
 }
 registerEnumType(ES3Folder, { name: 'ES3Folder' });
